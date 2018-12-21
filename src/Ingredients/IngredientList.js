@@ -5,17 +5,10 @@ import './IngredientList.css';
 
 class IngredientList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: ["Tomatoes", "Pasta", "Oregano"],
-        }
-    }
-
     render() {
 
-        const ingredientItems = this.state.items.map((item) =>
-            <IngredientItem item={item} ></IngredientItem>
+        const ingredientItems = this.props.items.map((item, index) =>
+            <IngredientItem item={item} key={index}></IngredientItem>
         );
 
         return (
