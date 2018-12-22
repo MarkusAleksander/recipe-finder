@@ -49,7 +49,7 @@ class App extends Component {
         </div>
         <div className="col-1">
           <SearchModes modes={this.state.search_modes} updateMode={this.updateSearchMode}></SearchModes>
-          <RecipeMain recipes={this.state.recipe_list}></RecipeMain>
+          <RecipeMain search_mode={this.state.search_mode} recipes={this.state.recipe_list}></RecipeMain>
         </div>
       </div>
     );

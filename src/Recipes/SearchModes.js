@@ -19,6 +19,7 @@ class SearchModes extends Component {
 
     componentDidMount() {
         this.setState({ mode: 'all' });
+        this.props.updateMode('all');
     }
 
     render() {

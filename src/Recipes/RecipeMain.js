@@ -7,7 +7,16 @@ class RecipeMain extends Component {
     render() {
 
         const recipes = this.props.recipes.map((r) => {
-            return <Recipe recipe={r}></Recipe>
+            if (this.props.search_mode === 'all') {
+                return <Recipe recipe={r}></Recipe>
+            } else if (this.props.search_mode === 'exact') {
+
+            } else if (this.props.search_mode === 'fuzzy') {
+
+            } else {
+                // Return all as default
+                return <Recipe recipe={r}></Recipe>
+            }
         });
 
         return (
