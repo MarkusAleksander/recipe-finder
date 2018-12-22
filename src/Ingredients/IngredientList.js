@@ -7,13 +7,13 @@ class IngredientList extends Component {
 
     render() {
 
-        const ingredientItems = this.props.items.map((item, index) =>
-            <IngredientItem item={item} key={index}></IngredientItem>
+        const ingredients = this.props.ingredients.map((ingredient, index) =>
+            <IngredientItem item={ingredient} key={index}></IngredientItem>
         );
 
         return (
             <ul className="ingredient-list">
-                {ingredientItems}
+                {ingredients}
             </ul>
         )
     }

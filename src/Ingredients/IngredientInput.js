@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './IngredientInput.css';
 
 class IngredientInput extends Component {
 
@@ -12,8 +13,10 @@ class IngredientInput extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.handleSubmit(this.state.item);
-        this.setState({ item: '' });
+        if (this.state.item !== '') {
+            this.props.handleSubmit(this.state.item);
+            this.setState({ item: '' });
+        }
     }
 
     handleChange(e) {
@@ -24,7 +27,7 @@ class IngredientInput extends Component {
         return (
             <form className="ingredient-input" onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} value={this.state.item} />
-                <button>Add</button>
+                <button onClick={this.handleSubmit}>Add</button>
             </form >
         )
     }
