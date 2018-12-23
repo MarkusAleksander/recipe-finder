@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchModes.css';
 
 class SearchModes extends Component {
 
@@ -29,7 +30,7 @@ class SearchModes extends Component {
         })
 
         return (
-            <ul>
+            <ul className="modes">
                 {modeItems}
             </ul>
         )
