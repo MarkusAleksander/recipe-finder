@@ -14,12 +14,18 @@ class IngredientsMain extends Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateIngredients = this.updateIngredients.bind(this);
     }
 
     handleSubmit(i) {
         let t = this.state.ingredients;
         t.push(i);
         this.setState({ ingredients: t });
+        this.updateIngredients();
+    }
+
+    updateIngredients() {
+        this.props.updateIngredients(this.state.ingredients);
     }
 
     render() {

@@ -31,25 +31,31 @@ class App extends Component {
           'mode': 'fuzzy'
         }
       ],
-      search_mode: null
+      search_mode: null,
+      ingredients: []
     }
 
     this.updateSearchMode = this.updateSearchMode.bind(this);
+    this.updateIngredients = this.updateIngredients.bind(this);
   }
 
   updateSearchMode(m) {
     this.setState({ search_mode: m });
   }
 
+  updateIngredients(i) {
+    this.setState({ ingredients: i });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="col-1">
-          <IngredientsMain></IngredientsMain>
+          <IngredientsMain updateIngredients={this.updateIngredients}></IngredientsMain>
         </div>
         <div className="col-1">
           <SearchModes modes={this.state.search_modes} updateMode={this.updateSearchMode}></SearchModes>
-          <RecipeMain search_mode={this.state.search_mode} recipes={this.state.recipe_list}></RecipeMain>
+          <RecipeMain ingredients={this.state.ingredients} search_mode={this.state.search_mode} recipes={this.state.recipe_list}></RecipeMain>
         </div>
       </div>
     );
