@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// Import Components
 import IngredientsMain from './Ingredients/IngredientsMain';
 import RecipeMain from './Recipes/RecipeMain';
 import SearchModes from './Recipes/SearchModes';
+
+// Import localData
+import recipeList from './localData/recipe_list';
+import searchModes from './localData/search_modes';
 
 class App extends Component {
 
@@ -11,28 +16,15 @@ class App extends Component {
     super(props);
 
     this.state = {
-      recipe_list: [{
-        'title': 'Pasta Bolognese',
-        'instruction': 'Lorem Ipsum',
-        'ingredients': ['pasta', 'tomatoes', 'oregano']
-      }, {
-        'title': 'Goulash',
-        'instruction': 'Lorem Ipsum',
-        'ingredients': ['beef', 'tomatoes']
-      }],
-      search_modes: [
-        {
-          'mode': 'all'
-        },
-        {
-          'mode': 'exact'
-        },
-        {
-          'mode': 'fuzzy'
-        }
-      ],
-      search_mode: null,
-      ingredients: []
+
+      // List of recipes
+      recipe_list: recipeList,
+      // List of search modes
+      search_modes: searchModes,
+      // Currently selected search mode
+      user_search_mode: null,
+      // Currentl selected ingredients
+      user_ingredients: []
     }
 
     this.updateSearchMode = this.updateSearchMode.bind(this);
@@ -40,22 +32,27 @@ class App extends Component {
   }
 
   updateSearchMode(m) {
-    this.setState({ search_mode: m });
+    // Update user selected Mode
+    this.setState({ user_search_mode: m });
   }
 
   updateIngredients(i) {
-    this.setState({ ingredients: i });
+    // Update user entered ingredients
+    this.setState({ user_ingredients: i });
   }
 
   render() {
     return (
       <div className="App">
         <div className="col-1">
+          {/* Pass callback for updating ingredients */}
           <IngredientsMain updateIngredients={this.updateIngredients}></IngredientsMain>
         </div>
         <div className="col-1">
+          {/* Pass list of modes and callback for updating current mode */}
           <SearchModes modes={this.state.search_modes} updateMode={this.updateSearchMode}></SearchModes>
-          <RecipeMain ingredients={this.state.ingredients} search_mode={this.state.search_mode} recipes={this.state.recipe_list}></RecipeMain>
+          {/* pass user entered ingredients, user selected mode and recipe lists */}
+          <RecipeMain ingredients={this.state.user_ingredients} search_mode={this.state.user_search_mode} recipes={this.state.recipe_list}></RecipeMain>
         </div>
       </div>
     );

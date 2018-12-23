@@ -7,6 +7,7 @@ class IngredientList extends Component {
 
     render() {
 
+        // Render each item in the ingredient list
         const ingredients = this.props.ingredients.map((ingredient, index) =>
             <IngredientItem item={ingredient} key={index}></IngredientItem>
         );

@@ -9,6 +9,7 @@ class IngredientsMain extends Component {
     constructor(props) {
         super(props);
 
+        // Maintain a list of ingredients
         this.state = {
             ingredients: []
         }
@@ -18,6 +19,7 @@ class IngredientsMain extends Component {
     }
 
     handleSubmit(i) {
+        // Handle form submission
         let t = this.state.ingredients;
         t.push(i);
         this.setState({ ingredients: t });
@@ -25,6 +27,7 @@ class IngredientsMain extends Component {
     }
 
     updateIngredients() {
+        // Pass updated ingredients to parent
         this.props.updateIngredients(this.state.ingredients);
     }
 

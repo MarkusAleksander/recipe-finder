@@ -12,14 +12,18 @@ class IngredientInput extends Component {
     }
 
     handleSubmit(e) {
+        // Handle form submission
         e.preventDefault();
         if (this.state.item !== '') {
+            // If there is something to submit, pass to callback
             this.props.handleSubmit(this.state.item);
+            // Clear the current item
             this.setState({ item: '' });
         }
     }
 
     handleChange(e) {
+        // Update current state to user input
         this.setState({ item: e.target.value });
     }
 

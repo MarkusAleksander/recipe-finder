@@ -26,6 +26,9 @@
     border-radius:1.5rem;
     background-color:#aaa;
 }
+.modes li.active button {
+    border:1px solid #000;
+}
 .modes li button:hover,
 .modes li button:focus {
     color:#fff;

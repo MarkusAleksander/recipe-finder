@@ -14,17 +14,20 @@ class SearchModes extends Component {
     }
 
     updateMode(m) {
+        // Update selected mode
         this.setState({ mode: m });
         this.props.updateMode(m);
     }
 
     componentDidMount() {
+        // Set initial state to mode 'all'
         this.setState({ mode: 'all' });
         this.props.updateMode('all');
     }
 
     render() {
 
+        // Render each mode and highlight active for currently chosen one
         const modeItems = this.props.modes.map((m) => {
             return <li className={this.state.mode === m.mode ? 'active' : ''} ><button onClick={() => { this.updateMode(m.mode) }}>{m.mode}</button></li>
         })
