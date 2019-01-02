@@ -3,8 +3,8 @@ import './App.css';
 
 // Import Components
 import IngredientsMain from './Ingredients/IngredientsMain';
-import RecipeMain from './Recipes/RecipeMain';
 import SearchModes from './Recipes/SearchModes';
+import RecipeMain from './Recipes/RecipeMain';
 
 // Import localData
 import recipeList from './localData/recipe_list';
@@ -52,7 +52,7 @@ class App extends Component {
           {/* Pass list of modes and callback for updating current mode */}
           <SearchModes modes={this.state.search_modes} updateMode={this.updateSearchMode}></SearchModes>
           {/* pass user entered ingredients, user selected mode and recipe lists */}
-          <RecipeMain ingredients={this.state.user_ingredients} search_mode={this.state.user_search_mode} recipes={this.state.recipe_list}></RecipeMain>
+          <RecipeMain ingredients={this.state.user_ingredients} modes={this.state.search_modes} search_mode={this.state.user_search_mode} recipes={this.state.recipe_list}></RecipeMain>
         </div>
       </div>
     );
