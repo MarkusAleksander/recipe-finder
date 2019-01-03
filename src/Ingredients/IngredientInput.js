@@ -8,7 +8,7 @@ class IngredientInput extends Component {
         this.state = {
             item: '',
             amount: '',
-            quantifier: null
+            quantifier: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +32,7 @@ class IngredientInput extends Component {
             this.setState({
                 item: '',
                 amount: '',
-                quantifier: null
+                quantifier: ''
             });
         }
     }
@@ -50,15 +50,31 @@ class IngredientInput extends Component {
         this.setState({ quantifier: e.target.value });
     }
 
+
     render() {
+
+        const quantifiers = [
+            {
+                'value': 'g',
+                'content': 'grams'
+            },
+            {
+                'value': 'tbsp',
+                'content': 'tablespoon'
+            }
+        ];
+
+        const quantifierOptions = quantifiers.map((el) => {
+            return <option value={el.value}>{el.content}</option>
+        });
+
         return (
             <form className="ingredient-input" onSubmit={this.handleSubmit}>
                 <input onChange={this.handleIngredientChange} value={this.state.item} />
                 <input onChange={this.handleAmountChange} value={this.state.amount} />
                 <select onChange={this.handleQuantifierChange} value={this.state.quantifier}>
-                    <option value="" selected disabled>Select quantifier</option>
-                    <option value="g">grams</option>
-                    <option value="tpsn">tpsn</option>
+                    <option value="" disabled>Select quantifier</option>
+                    {quantifierOptions}
                 </select>
                 <button onClick={this.handleSubmit}>Add</button>
             </form >
