@@ -8,7 +8,7 @@ class Recipe extends Component {
 
         // Render each ingredient item in the recipe
         const listIngredients = this.props.recipe.ingredients.map((i) => {
-            return <li>{i}</li>
+            return <li>{i.amount} {i.ingredient}</li>
         });
 
         return (

@@ -6,7 +6,7 @@ class IngredientItem extends Component {
     render() {
         // Render each ingredient item
         return (
-            <li className="ingredient-item">{this.props.item}</li>
+            <li className="ingredient-item">{this.props.ingredient.amount} {this.props.ingredient.ingredient}</li>
         )
     }
 
