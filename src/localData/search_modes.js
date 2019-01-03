@@ -9,8 +9,16 @@ const searchModes = [
         'mode': 'exact',
         'fn': function (recipe, ingredients, cb) {
             if ((() => {
+                // Go through each ingredient in the recipe
                 return recipe.ingredients.every((l) => {
-                    return ingredients.indexOf(l) >= 0;
+                    // Check in the user ingredients..
+                    return ingredients.some((el) => {
+                        // That we have a matching ingredient
+                        return Object.keys(el).every((k) => {
+                            // Return result of existence and comparison
+                            return l[k] && l[k] === el[k];
+                        });
+                    });
                 });
             })()) {
                 return cb();
@@ -21,8 +29,16 @@ const searchModes = [
         'mode': 'some',
         'fn': function (recipe, ingredients, cb) {
             if ((() => {
-                return ingredients.some(function (v) {
-                    return recipe.ingredients.indexOf(v) >= 0;
+                // Go through each ingredient in our list
+                return ingredients.some(function (l) {
+                    // Check each ingredient in the recipe...
+                    return recipe.ingredients.some(el => {
+                        // that we have a matching ingredient in our list
+                        return Object.keys(l).every((k) => {
+                            // Return result of existence and comparison
+                            return el[k] && el[k] === l[k];
+                        });
+                    });
                 });
             })()) {
                 return cb();
