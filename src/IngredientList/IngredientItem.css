@@ -17,6 +17,7 @@
     bottom:0;
     display:flex;
     width:3rem;
+    cursor:pointer;
     justify-content:center;
     align-items:center;
 }

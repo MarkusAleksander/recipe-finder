@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './IngredientInput.css';
 
-import quantifiers from './../localData/quantifiers.js';
+import quantifiers from '../../localData/quantifiers.js';
 
 class IngredientInput extends Component {
 

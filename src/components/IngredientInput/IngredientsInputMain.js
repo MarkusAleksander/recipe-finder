@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './IngredientsMain.css';
+import './IngredientsInputMain.css';
 
 import IngredientInput from './IngredientInput';
-import IngredientList from './IngredientList';
+import IngredientList from '../../IngredientList/IngredientList';
 
 class IngredientsMain extends Component {
 
@@ -35,7 +35,7 @@ class IngredientsMain extends Component {
         return (
             <div>
                 <IngredientInput handleSubmit={this.handleSubmit}></IngredientInput>
-                <IngredientList ingredients={this.state.ingredients}></IngredientList>
+                <IngredientList ingredients={this.state.ingredients} removable={true}></IngredientList>
             </div>
         )
     }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 // Import Components
-import IngredientsMain from './Ingredients/IngredientsMain';
+import IngredientsMain from './components/IngredientInput/IngredientsInputMain';
 import SearchModes from './Recipes/SearchModes';
 import RecipeMain from './Recipes/RecipeMain';
 

@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import './Recipe.css';
 
+import '../IngredientList/IngredientList';
+import IngredientList from '../IngredientList/IngredientList';
+
 class Recipe extends Component {
 
 
     render() {
 
-        // Render each ingredient item in the recipe
-        const listIngredients = this.props.recipe.ingredients.map((i) => {
-            return <li>{i.amount} {i.ingredient}</li>
-        });
-
         return (
             <div className="recipe-block">
                 <h2>{this.props.recipe.title}</h2>
-                <ul>{listIngredients}</ul>
+                <IngredientList ingredients={this.props.recipe.ingredients} removeable={false}></IngredientList>
                 <p>{this.props.recipe.instruction}</p>
             </div>
         )
