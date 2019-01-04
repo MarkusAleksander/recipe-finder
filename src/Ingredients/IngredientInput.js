@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './IngredientInput.css';
 
+import quantifiers from './../localData/quantifiers.js';
+
 class IngredientInput extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             item: '',
-            amount: '',
+            amount: 0.25,
             quantifier: ''
         };
 
@@ -15,12 +17,22 @@ class IngredientInput extends Component {
         this.handleIngredientChange = this.handleIngredientChange.bind(this);
         this.handleAmountChange = this.handleAmountChange.bind(this);
         this.handleQuantifierChange = this.handleQuantifierChange.bind(this);
+        this.resetValues = this.resetValues.bind(this);
+    }
+
+    resetValues() {
+        // Clear the current item
+        this.setState({
+            item: '',
+            amount: 0.25,
+            quantifier: ''
+        });
     }
 
     handleSubmit(e) {
         // Handle form submission
         e.preventDefault();
-        if (this.state.item !== '' && this.state.amount !== '' && this.state.quantifier !== null) {
+        if (this.state.item !== '' && this.state.quantifier !== null) {
             // If there is something to submit, pass to callback
             this.props.handleSubmit(
                 {
@@ -28,41 +40,26 @@ class IngredientInput extends Component {
                     'amount': `${this.state.amount}${this.state.quantifier}`
                 }
             );
-            // Clear the current item
-            this.setState({
-                item: '',
-                amount: '',
-                quantifier: ''
-            });
+            this.resetValues();
         }
     }
 
+    // Update with Ingredient
     handleIngredientChange(e) {
-        // Update current state to user input
         this.setState({ item: e.target.value });
     }
 
+    // Update the Amount
     handleAmountChange(e) {
         this.setState({ amount: e.target.value });
     }
 
+    // Update the Quantifier
     handleQuantifierChange(e) {
         this.setState({ quantifier: e.target.value });
     }
 
-
     render() {
-
-        const quantifiers = [
-            {
-                'value': 'g',
-                'content': 'grams'
-            },
-            {
-                'value': 'tbsp',
-                'content': 'tablespoon'
-            }
-        ];
 
         const quantifierOptions = quantifiers.map((el) => {
             return <option value={el.value}>{el.content}</option>
@@ -70,13 +67,29 @@ class IngredientInput extends Component {
 
         return (
             <form className="ingredient-input" onSubmit={this.handleSubmit}>
-                <input onChange={this.handleIngredientChange} value={this.state.item} />
-                <input onChange={this.handleAmountChange} value={this.state.amount} />
-                <select onChange={this.handleQuantifierChange} value={this.state.quantifier}>
+                <input
+                    className="ingredient-input__item"
+                    type="text"
+                    onChange={this.handleIngredientChange}
+                    value={this.state.item} />
+                <input
+                    className="ingredient-input__amount"
+                    type="number"
+                    step="0.25"
+                    min="0.25"
+                    max="1000"
+                    onChange={this.handleAmountChange}
+                    value={this.state.amount} />
+                <select
+                    className="ingredient-input__quantifier"
+                    onChange={this.handleQuantifierChange}
+                    value={this.state.quantifier} >
                     <option value="" disabled>Select quantifier</option>
                     {quantifierOptions}
                 </select>
-                <button onClick={this.handleSubmit}>Add</button>
+                <button
+                    className="ingredient-input__submit"
+                    onClick={this.handleSubmit}>Add</button>
             </form >
         )
     }
