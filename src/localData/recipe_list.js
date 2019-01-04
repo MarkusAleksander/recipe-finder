@@ -4,15 +4,18 @@ const recipeList = [{
     'ingredients': [
         {
             'ingredient': 'pasta',
-            'amount': '100g'
+            'amount': '100',
+            'quantifier': 'g'
         },
         {
             'ingredient': 'tomatoes',
-            'amount': '200g'
+            'amount': '200',
+            'quantifier': 'g'
         },
         {
             'ingredient': 'oregano',
-            'amount': '1 tspn'
+            'amount': '1',
+            'quantifier': 'tspn'
         }
     ]
 }, {
@@ -21,11 +24,13 @@ const recipeList = [{
     'ingredients': [
         {
             'ingredient': 'beef',
-            'amount': '200g'
+            'amount': '200',
+            'quantifier': 'g'
         },
         {
             'ingredient': 'tomatoes',
-            'amount': '200g'
+            'amount': '200',
+            'quantifier': 'g'
         }
     ]
 }];

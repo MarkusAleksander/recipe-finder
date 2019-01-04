@@ -37,7 +37,8 @@ class IngredientInput extends Component {
             this.props.handleSubmit(
                 {
                     'ingredient': this.state.item.trim(),
-                    'amount': `${this.state.amount}${this.state.quantifier}`
+                    'amount': this.state.amount,
+                    'quantifier': this.state.quantifier
                 }
             );
             this.resetValues();
