@@ -21,7 +21,7 @@ class IngredientInput extends Component {
     }
 
     resetValues() {
-        // Clear the current item
+        // Clear the current data and reset values
         this.setState({
             item: '',
             amount: 0.25,
@@ -32,8 +32,8 @@ class IngredientInput extends Component {
     handleSubmit(e) {
         // Handle form submission
         e.preventDefault();
-        if (this.state.item !== '' && this.state.quantifier !== null) {
-            // If there is something to submit, pass to callback
+        // Only submit if item and quantifier are not empty
+        if (this.state.item !== '' && this.state.quantifier !== '') {
             this.props.handleSubmit(
                 {
                     'ingredient': this.state.item.trim(),
@@ -62,17 +62,20 @@ class IngredientInput extends Component {
 
     render() {
 
+        // Generate Quantifier options
         const quantifierOptions = quantifiers.map((el) => {
             return <option value={el.value}>{el.content}</option>
         });
 
         return (
             <form className="ingredient-input" onSubmit={this.handleSubmit}>
+                {/* Input for Ingredient item */}
                 <input
                     className="ingredient-input__item"
                     type="text"
                     onChange={this.handleIngredientChange}
                     value={this.state.item} />
+                {/* Input for ingredient amount */}
                 <input
                     className="ingredient-input__amount"
                     type="number"
@@ -81,6 +84,7 @@ class IngredientInput extends Component {
                     max="1000"
                     onChange={this.handleAmountChange}
                     value={this.state.amount} />
+                {/* Input for ingredient quantifier */}
                 <select
                     className="ingredient-input__quantifier"
                     onChange={this.handleQuantifierChange}
