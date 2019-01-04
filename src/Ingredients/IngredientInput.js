@@ -36,7 +36,7 @@ class IngredientInput extends Component {
             // If there is something to submit, pass to callback
             this.props.handleSubmit(
                 {
-                    'ingredient': this.state.item,
+                    'ingredient': this.state.item.trim(),
                     'amount': `${this.state.amount}${this.state.quantifier}`
                 }
             );
@@ -46,7 +46,7 @@ class IngredientInput extends Component {
 
     // Update with Ingredient
     handleIngredientChange(e) {
-        this.setState({ item: e.target.value });
+        this.setState({ item: e.target.value.toLowerCase() });
     }
 
     // Update the Amount
