@@ -10,7 +10,8 @@ class IngredientInput extends Component {
         this.state = {
             item: '',
             amount: 0.25,
-            quantifier: ''
+            quantifier: '',
+            itemNo: 0,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +26,8 @@ class IngredientInput extends Component {
         this.setState({
             item: '',
             amount: 0.25,
-            quantifier: ''
+            quantifier: '',
+            itemNo: this.state.itemNo + 1
         });
     }
 
@@ -38,7 +40,8 @@ class IngredientInput extends Component {
                 {
                     'ingredient': this.state.item.trim(),
                     'amount': this.state.amount,
-                    'quantifier': this.state.quantifier
+                    'quantifier': this.state.quantifier,
+                    'id': this.state.itemNo
                 }
             );
             this.resetValues();
@@ -64,7 +67,7 @@ class IngredientInput extends Component {
 
         // Generate Quantifier options
         const quantifierOptions = quantifiers.map((el) => {
-            return <option value={el.value}>{el.content}</option>
+            return <option key={el.value} value={el.value}>{el.content}</option>
         });
 
         return (

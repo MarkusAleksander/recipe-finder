@@ -26,7 +26,7 @@ class SearchOptions extends Component {
     render() {
         // Render each mode and highlight active for currently chosen one
         const modeItems = this.props.options.map((m) => {
-            return <li className={this.state.mode === m.mode ? 'active' : ''} ><button onClick={() => { this.updateOption(m.mode) }}>{m.mode}</button></li>
+            return <li key={m.mode} className={this.state.mode === m.mode ? 'active' : ''} ><button onClick={() => { this.updateOption(m.mode) }}>{m.mode}</button></li>
         })
 
         return (

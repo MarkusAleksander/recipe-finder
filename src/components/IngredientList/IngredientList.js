@@ -19,7 +19,7 @@ class IngredientList extends Component {
 
         // Render each item in the ingredient list
         const ingredients = this.props.ingredients.map((ingredient, index) =>
-            <IngredientItem ingredient={ingredient} key={index} removable={this.props.removable} onRemove={this.handleRemove}></IngredientItem>
+            <IngredientItem ingredient={ingredient} key={ingredient.id || index} removable={this.props.removable} onRemove={this.handleRemove}></IngredientItem>
         );
 
         return (

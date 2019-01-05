@@ -7,11 +7,11 @@ import recipeList from './recipe_list';
 class RecipeMain extends Component {
 
     render() {
-        const recipes = recipeList.map((r) => {
+        const recipes = recipeList.map((r, index) => {
 
             let m = this.props.searchModes.find(el => { return el.mode === this.props.searchMode }) || this.props.searchModes[0];
             let l = m.fn(r, this.props.ingredients, function () {
-                return <Recipe recipe={r}></Recipe>;
+                return <Recipe key={index} recipe={r}></Recipe>;
             });
             return l;
 
