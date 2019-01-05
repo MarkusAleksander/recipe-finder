@@ -15,6 +15,7 @@ const searchModes = [
                     return ingredients.some((el) => {
                         // That we have a matching ingredient
                         return Object.keys(el).every((k) => {
+                            if (k === 'id') return true;
                             // Return result of existence and comparison
                             return l[k] && l[k] === el[k];
                         });
@@ -35,6 +36,7 @@ const searchModes = [
                     return recipe.ingredients.some(el => {
                         // that we have a matching ingredient in our list
                         return Object.keys(l).every((k) => {
+                            if (k === 'id') return true;
                             // Return result of existence and comparison
                             return el[k] && el[k] === l[k];
                         });
