@@ -3,12 +3,10 @@ import './App.css';
 
 // Import Components
 import IngredientsMain from './components/IngredientInput/IngredientsInputMain';
-import SearchModes from './Recipes/SearchModes';
-import RecipeMain from './Recipes/RecipeMain';
+import SearchOptions from './components/Search/SearchOptions';
+import RecipeMain from './components/Recipes/RecipeMain';
 
-// Import localData
-import recipeList from './localData/recipe_list';
-import searchModes from './localData/search_modes';
+import searchModes from './components/Search/search_modes';
 
 class App extends Component {
 
@@ -16,11 +14,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-
-      // List of recipes
-      recipe_list: recipeList,
-      // List of search modes
-      search_modes: searchModes,
       // Currently selected search mode
       user_search_mode: null,
       // Currentl selected ingredients
@@ -49,12 +42,13 @@ class App extends Component {
           <IngredientsMain updateIngredients={this.updateIngredients}></IngredientsMain>
         </div>
         <div className="col-1">
-          {/* Pass list of modes and callback for updating current mode */}
-          <SearchModes modes={this.state.search_modes} updateMode={this.updateSearchMode}></SearchModes>
           {/* pass user entered ingredients, user selected mode and recipe lists */}
-          <RecipeMain ingredients={this.state.user_ingredients} modes={this.state.search_modes} search_mode={this.state.user_search_mode} recipes={this.state.recipe_list}></RecipeMain>
+          <SearchOptions onUpdate={this.updateSearchMode} options={searchModes}></SearchOptions>
+          {this.state.user_search_mode != null &&
+            <RecipeMain ingredients={this.state.user_ingredients} searchModes={searchModes} searchMode={this.state.user_search_mode}></RecipeMain>
+          }
         </div>
-      </div>
+      </div >
     );
   }
 }

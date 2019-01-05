@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './IngredientsInputMain.css';
 
 import IngredientInput from './IngredientInput';
-import IngredientList from '../../IngredientList/IngredientList';
+import IngredientList from '../IngredientList/IngredientList';
 
 class IngredientsMain extends Component {
 
