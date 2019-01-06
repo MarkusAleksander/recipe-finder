@@ -55,7 +55,7 @@ class IngredientInput extends Component {
 
     // Update the Amount
     handleAmountChange(e) {
-        this.setState({ amount: e.target.value });
+        this.setState({ amount: Number(e.target.value) });
     }
 
     // Update the Quantifier
