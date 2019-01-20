@@ -14,8 +14,13 @@ const searchModes = [
                     // Check in the user ingredients..
                     return ingredients.some((user_ingredient) => {
 
-                        // Compare each object  for ingredient, quantifier and amount
-                        return (recipe_ingredient.ingredient === user_ingredient.ingredient) && (recipe_ingredient.quantifier === user_ingredient.quantifier) && (recipe_ingredient.amount <= user_ingredient.amount);
+                        /**
+                         * Compare
+                         * - Ingredient exists in the recipe
+                         * - We have the correct quantifier for the ingredient TODO: Create function to cpmpare values
+                         * - We have enough of the ingredient (for the amount of servings)
+                         */
+                        return (recipe_ingredient.ingredient === user_ingredient.ingredient) && (recipe_ingredient.quantifier === user_ingredient.quantifier) && ((Number(recipe_ingredient.amount) * servings) <= user_ingredient.amount);
 
                     });
                 });
@@ -33,8 +38,13 @@ const searchModes = [
                     // Check each ingredient in the recipe...
                     return recipe.ingredients.some(recipe_ingredient => {
 
-                        // Compare each object  for ingredient, quantifier and amount
-                        return (recipe_ingredient.ingredient === user_ingredient.ingredient) && (recipe_ingredient.quantifier === user_ingredient.quantifier) && (recipe_ingredient.amount <= user_ingredient.amount);
+                        /**
+                         * Compare
+                         * - Ingredient exists in the recipe
+                         * - We have the correct quantifier for the ingredient TODO: Create function to cpmpare values
+                         * - We have enough of the ingredient (for the amount of servings)
+                         */
+                        return (recipe_ingredient.ingredient === user_ingredient.ingredient) && (recipe_ingredient.quantifier === user_ingredient.quantifier) && ((Number(recipe_ingredient.amount) * servings) <= user_ingredient.amount);
 
                     });
                 });
