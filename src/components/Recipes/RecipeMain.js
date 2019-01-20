@@ -10,7 +10,7 @@ class RecipeMain extends Component {
         const recipes = recipeList.map((r, index) => {
 
             let m = this.props.searchModes.find(el => { return el.mode === this.props.searchMode }) || this.props.searchModes[0];
-            let l = m.fn(r, this.props.ingredients, function () {
+            let l = m.fn(r, this.props.ingredients, this.props.servings, function () {
                 return <Recipe key={index} recipe={r}></Recipe>;
             });
             return l;

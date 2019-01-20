@@ -1,13 +1,13 @@
 const searchModes = [
     {
         'mode': 'all',
-        'fn': function (recipe, ingredients, cb) {
+        'fn': function (recipe, ingredients, servings, cb) {
             return cb();
         }
     },
     {
         'mode': 'exact',
-        'fn': function (recipe, ingredients, cb) {
+        'fn': function (recipe, ingredients, servings, cb) {
             if ((() => {
                 // Go through each ingredient in the recipe
                 return recipe.ingredients.every((recipe_ingredient) => {
@@ -26,7 +26,7 @@ const searchModes = [
     },
     {
         'mode': 'some',
-        'fn': function (recipe, ingredients, cb) {
+        'fn': function (recipe, ingredients, servings, cb) {
             if ((() => {
                 // Go through each ingredient in our list
                 return ingredients.some(function (user_ingredient) {
