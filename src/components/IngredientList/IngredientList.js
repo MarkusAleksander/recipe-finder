@@ -8,6 +8,10 @@ class IngredientList extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            servingSize: this.props.servingSize || 1
+        }
+
         this.handleRemove = this.handleRemove.bind(this);
     }
 
@@ -19,7 +23,7 @@ class IngredientList extends Component {
 
         // Render each item in the ingredient list
         const ingredients = this.props.ingredients.map((ingredient, index) =>
-            <IngredientItem ingredient={ingredient} key={ingredient.id || index} removable={this.props.removable} onRemove={this.handleRemove}></IngredientItem>
+            <IngredientItem ingredient={ingredient} key={ingredient.id || index} removable={this.props.removable} onRemove={this.handleRemove} servingSize={this.state.servingSize}></IngredientItem>
         );
 
         return (

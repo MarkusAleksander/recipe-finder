@@ -10,7 +10,7 @@ class IngredientItem extends Component {
 
         // Render an  ingredient item
         return (
-            <li className="ingredient-item">{this.props.ingredient.amount}{this.props.ingredient.quantifier} {this.props.ingredient.ingredient} {removable}</li>
+            <li className="ingredient-item">{this.props.ingredient.amount * this.props.servingSize}{this.props.ingredient.quantifier} {this.props.ingredient.ingredient} {removable}</li>
         )
     }
 

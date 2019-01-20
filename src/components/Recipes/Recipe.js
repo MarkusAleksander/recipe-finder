@@ -12,7 +12,7 @@ class Recipe extends Component {
         return (
             <div className="recipe-block">
                 <h2>{this.props.recipe.title}</h2>
-                <IngredientList ingredients={this.props.recipe.ingredients} removeable={false}></IngredientList>
+                <IngredientList ingredients={this.props.recipe.ingredients} removeable={false} servingSize={this.props.servingSize}></IngredientList>
                 <p>{this.props.recipe.instruction}</p>
             </div>
         )

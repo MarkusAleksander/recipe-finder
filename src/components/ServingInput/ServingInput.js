@@ -7,7 +7,7 @@ class ServingInput extends Component {
         super(props);
 
         this.state = {
-            servings: this.props.servings
+            servingSize: this.props.servingSize
         }
 
         this.handleServingsChange = this.handleServingsChange.bind(this);
@@ -17,13 +17,13 @@ class ServingInput extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        if (this.state.servings !== 0 && this.state.servings >= 1) {
-            this.props.updateServings(Number(this.state.servings));
+        if (this.state.servingSize !== 0 && this.state.servingSize >= 1) {
+            this.props.updateServings(Number(this.state.servingSize));
         }
     }
 
     handleServingsChange(e) {
-        this.setState({ servings: e.target.value });
+        this.setState({ servingSize: e.target.value });
     }
 
     render() {
@@ -34,7 +34,7 @@ class ServingInput extends Component {
                     className="serving-input__total"
                     type="number"
                     onChange={this.handleServingsChange}
-                    value={this.state.servings}
+                    value={this.state.servingSize}
                     min="0"
                     max="50" />
                 <button
