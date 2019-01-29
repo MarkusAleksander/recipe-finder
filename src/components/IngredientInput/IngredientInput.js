@@ -73,28 +73,40 @@ class IngredientInput extends Component {
         return (
             <form className="ingredient-input" onSubmit={this.handleSubmit}>
                 {/* Input for Ingredient item */}
-                <input
-                    className="ingredient-input__item"
-                    type="text"
-                    onChange={this.handleIngredientChange}
-                    value={this.state.item} />
-                {/* Input for ingredient amount */}
-                <input
-                    className="ingredient-input__amount"
-                    type="number"
-                    step="0.25"
-                    min="0.25"
-                    max="1000"
-                    onChange={this.handleAmountChange}
-                    value={this.state.amount} />
-                {/* Input for ingredient quantifier */}
-                <select
-                    className="ingredient-input__quantifier"
-                    onChange={this.handleQuantifierChange}
-                    value={this.state.quantifier} >
-                    <option value="" disabled>Select quantifier</option>
-                    {quantifierOptions}
-                </select>
+                <div className="form-item">
+                    <label for="ingredient">Ingredient:</label>
+                    <input
+                        name="ingriedient"
+                        className="ingredient-input__item"
+                        type="text"
+                        onChange={this.handleIngredientChange}
+                        value={this.state.item} />
+                    {/* Input for ingredient amount */}
+                </div>
+                <div className="form-item">
+                    <label for="amount">Amount</label>
+                    <input
+                        name="amount"
+                        className="ingredient-input__amount"
+                        type="number"
+                        step="0.25"
+                        min="0.25"
+                        max="1000"
+                        onChange={this.handleAmountChange}
+                        value={this.state.amount} />
+                    {/* Input for ingredient quantifier */}
+                </div>
+                <div className="form-item">
+                    <label for="quantifier">Quantifier</label>
+                    <select
+                        name="quantifier"
+                        className="ingredient-input__quantifier"
+                        onChange={this.handleQuantifierChange}
+                        value={this.state.quantifier} >
+                        <option value="" disabled>Select quantifier</option>
+                        {quantifierOptions}
+                    </select>
+                </div>
                 <button
                     className="ingredient-input__submit"
                     onClick={this.handleSubmit}>Add</button>
