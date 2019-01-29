@@ -45,19 +45,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="col-1">
-          <ServingInput updateServings={this.updateServings} servingSize={this.state.servingSize}></ServingInput>
-          {/* Pass callback for updating ingredients */}
-          <IngredientsMain updateIngredients={this.updateIngredients}></IngredientsMain>
+        <div className="container">
+          <div className="col">
+            <ServingInput updateServings={this.updateServings} servingSize={this.state.servingSize}></ServingInput>
+            {/* Pass callback for updating ingredients */}
+            <IngredientsMain updateIngredients={this.updateIngredients}></IngredientsMain>
+          </div>
+          <div className="col">
+            {/* pass user entered ingredients, user selected mode and recipe lists */}
+            <SearchOptions onUpdate={this.updateSearchMode} options={searchModes}></SearchOptions>
+            {this.state.user_search_mode != null &&
+              <RecipeMain ingredients={this.state.user_ingredients} searchModes={searchModes} searchMode={this.state.user_search_mode} servingSize={this.state.servingSize}></RecipeMain>
+            }
+          </div>
         </div>
-        <div className="col-1">
-          {/* pass user entered ingredients, user selected mode and recipe lists */}
-          <SearchOptions onUpdate={this.updateSearchMode} options={searchModes}></SearchOptions>
-          {this.state.user_search_mode != null &&
-            <RecipeMain ingredients={this.state.user_ingredients} searchModes={searchModes} searchMode={this.state.user_search_mode} servingSize={this.state.servingSize}></RecipeMain>
-          }
-        </div>
-      </div >
+      </div>
     );
   }
 }
