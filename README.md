@@ -4,6 +4,30 @@ A project using ReactJS to create a Recipe Finder - enter ingredients and the qu
 
 TODOs:
 
+* Component Restructure
 * Functionality to compare quantities - DONE
 * Better Styling
 * Functionality for Per Person quantities
+* Include Store
+
+Plan sketch:
+
+Store:
+
+* Ingredients
+    item
+    weight - value
+    weight - type
+* Number of servings
+
+Components:
+
+* User input form
+    Item
+    weight - value
+    weight - type
+    Number of servings
+* Recipe
+    Ingredient List
+        Ingredient item
+    Recipe Intructions
