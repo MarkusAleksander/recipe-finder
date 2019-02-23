@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import Ingredient from './Ingredient';
 
-class IngredientContainer extends Component {
+import { store } from '../../store/store';
 
-    const mapStateToProps = state => {
-        return {
-            reducers: state.reducers
-        }
-    }
+class IngredientContainer extends Component {
 
     render() {
         return (
-            <Ingredient></Ingredient>
+            <Ingredient ingredient={store.getState().ingredient}></Ingredient>
         )
     }
 

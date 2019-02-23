@@ -20,14 +20,16 @@ Store:
     weight - type
 * Number of servings
 
-Components:
+Component Wireframe:
 
-* User input form
-    Item
-    weight - value
-    weight - type
-    Number of servings
-* Recipe
-    Ingredient List
-        Ingredient item
-    Recipe Intructions
+* RecipeListContainer
+    * RecipeContainer
+        * Recipe
+            * IngredientContainer
+                * Ingredient
+                    - name
+                    - weight value and type
+            - name
+            - instructions
+
+Wireframing
