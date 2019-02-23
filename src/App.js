@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 
 // Import Components
-import RecipeContainer from './components/Recipe/RecipeContainer';
+import RecipeListContainer from './components/Recipe/RecipeListContainer';
 
 class App extends Component {
 
   render() {
     return (
-      <RecipeContainer></RecipeContainer>
+      <RecipeListContainer></RecipeListContainer>
     )
   }
 

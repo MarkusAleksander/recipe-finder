@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { IngredientContainer } from './../Ingredient/IngredientContainer';
 
-import { getIngredients } from './../../store/actions/action_creators';
-
 import { store } from '../../store/store';
 
 class RecipeContainer extends Component {
@@ -17,7 +15,6 @@ class RecipeContainer extends Component {
     }
 
     componentDidMount() {
-        // Get ingredients
         this.setState({
             recipe: getRecipeIngredients(this.state.recipe_id)
         });
@@ -35,7 +32,6 @@ class RecipeContainer extends Component {
 
 function getRecipeIngredients(id) {
     return store.getState().recipes.find(function (x) { return x.id === id });
-
 }
 
 export default RecipeContainer;
