@@ -1,16 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Ingredient from './Ingredient';
 
-import { store } from '../../store/store';
+export const IngredientContainer = () => (
+    <Ingredient ingredient="blah"></Ingredient>
+)
 
-class IngredientContainer extends Component {
-
-    render() {
-        return (
-            <Ingredient ingredient={store.getState().ingredient}></Ingredient>
-        )
-    }
-
-}
-
-export default IngredientContainer;
+//export default IngredientContainer;

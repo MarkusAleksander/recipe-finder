@@ -1,13 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Ingredient extends Component {
-
-    render() {
-        return (
-            <li className="ingredient">{this.props.ingredient}</li>
-        )
-    }
-
-}
+const Ingredient = (props) => (
+    <li className="ingredient">{props.ingredient}</li>
+)
 
 export default Ingredient;

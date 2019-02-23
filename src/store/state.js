@@ -1,5 +1,8 @@
 export const initialState = {
-    recipes: [],
+    recipes: [{
+        'id': 1,
+        'title': 'bolognese'
+    }],
     recipeIngredients: [],
     userIngredients: []
 }
