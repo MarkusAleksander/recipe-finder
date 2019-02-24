@@ -8,23 +8,24 @@ class RecipeContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipe_id: 1,
-            recipe: {},
-            ingredients: []
+            recipe: {}
         }
     }
 
     componentDidMount() {
         this.setState({
-            recipe: getRecipeIngredients(this.state.recipe_id)
+            recipe: getRecipeIngredients(this.props.id)
         });
     }
 
     render() {
+
         return (
             <div>
-                <p>{this.state.recipe.id}</p>
-                <IngredientContainer></IngredientContainer>
+                {
+                    this.state.recipe.id !== null &&
+                    <div><IngredientContainer id={this.state.recipe.id} ></IngredientContainer></div>
+                }
             </div>
         )
     }
