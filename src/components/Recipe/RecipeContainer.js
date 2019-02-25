@@ -1,38 +1,36 @@
 import React, { Component } from 'react';
-import { IngredientContainer } from './../Ingredient/IngredientContainer';
+//import { IngredientContainer } from './../Ingredient/IngredientContainer';
+import Recipe from './Recipe';
 
-import { store } from '../../store/store';
+//import { store } from '../../store/store';
 
 class RecipeContainer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            recipe: {}
+            recipe: this.props.recipe
         }
     }
 
-    componentDidMount() {
-        this.setState({
-            recipe: getRecipeIngredients(this.props.id)
-        });
-    }
+    // componentDidMount() {
+    //     this.setState({
+    //         ingredients: getRecipeIngredients(this.state.recipe.id)
+    //     });
+    // }
 
     render() {
 
         return (
             <div>
-                {
-                    this.state.recipe.id !== null &&
-                    <div><IngredientContainer id={this.state.recipe.id} ></IngredientContainer></div>
-                }
+                <Recipe recipe={this.state.recipe}></Recipe>
             </div>
         )
     }
 }
 
-function getRecipeIngredients(id) {
-    return store.getState().recipes.find(function (x) { return x.id === id });
-}
+// function getRecipeIngredients(id) {
+//     return store.getState().recipes.find(function (x) { return x.id === id });
+// }
 
 export default RecipeContainer;

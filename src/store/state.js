@@ -6,17 +6,17 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'ingredient_id': 3,
+                    'id': 3,
                     'amount': '100',
                     'quantifier': 'g'
                 },
                 {
-                    'ingredient_id': 1,
+                    'id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'ingredient_id': 4,
+                    'id': 4,
                     'amount': '1',
                     'quantifier': 'tspn'
                 }
@@ -27,12 +27,12 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'ingredient_id': 2,
+                    'id': 2,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'ingredient_id': 1,
+                    'id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 }
@@ -43,17 +43,17 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'ingredient': 'pasta',
+                    'id': 3,
                     'amount': '100',
                     'quantifier': 'g'
                 },
                 {
-                    'ingredient': 'tomatoes',
+                    'id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'ingredient': 'oregano',
+                    'id': 4,
                     'amount': '1',
                     'quantifier': 'tspn'
                 }
@@ -64,19 +64,17 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'ingredient_id': 2,
+                    'id': 2,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'ingredient_id': 1,
+                    'id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 }
             ]
         }
-
-
     ],
     recipeIngredients: [
         {

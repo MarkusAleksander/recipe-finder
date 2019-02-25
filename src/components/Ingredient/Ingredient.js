@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Ingredient = (props) => (
-    <li className="ingredient">{props.ingredient}</li>
+    <div className="ingredient">{props.amount}{props.quantifier} {props.ingredientName}</div>
 )
 
 export default Ingredient;
