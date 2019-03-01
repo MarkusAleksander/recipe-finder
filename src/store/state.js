@@ -94,5 +94,10 @@ export const initialState = {
             'ingredient': 'oregano'
         }
     ],
+    currentUserIngredient: {
+        ingredient: '',
+        quantity: 0,
+        quantifier: ''
+    },
     userIngredients: []
 }

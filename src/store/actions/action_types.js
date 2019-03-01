@@ -1,4 +1,3 @@
-export const GET_INGREDIENTS = 'Get Ingredients';
 export const ADD_INGREDIENT = 'Add Ingredient';
-export const GET_RECIPE = 'Get Recipe';
-export const GET_RECIPES = 'Get Recipes';
+export const ADD_QUANTITY = 'Add Quantity';
+export const ADD_QUANTIFIER = 'Add Quantifier';

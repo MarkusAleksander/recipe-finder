@@ -1,26 +1,20 @@
 import * as TYPES from './action_types';
 
-export const getIngredients = (recipe_id) => ({
-    type: TYPES.GET_INGREDIENTS,
-    payload: {
-        recipe_id: recipe_id
-    }
-})
-
-export const addIngredient = (ingredient) => ({
+export const addIngredient = (ingredient_id) => ({
     type: TYPES.ADD_INGREDIENT,
     payload: {
-        ingredient: ingredient
+        ingredient_id: ingredient_id
     }
 });
-
-export const getRecipes = () => ({
-    type: TYPES.GET_RECIPES
-});
-
-export const getRecipe = (recipe_id) => ({
-    type: TYPES.GET_RECIPE,
+export const addQuantity = (quantity) => ({
+    type: TYPES.ADD_QUANTITY,
     payload: {
-        recipe_id: recipe_id
+        quantity: quantity
     }
-})
+});
+export const addQuantifier = (quantifier) => ({
+    type: TYPES.ADD_QUANTIFIER,
+    payload: {
+        quantifier: quantifier
+    }
+});

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserSelect from './UserSelect';
 
 import { store } from '../../store/store';
+import { addIngredient } from '../../store/actions/action_creators';
 
 class UserSelectContainer extends Component {
 
@@ -11,12 +12,19 @@ class UserSelectContainer extends Component {
         this.state = {
             ingredients: []
         }
+
+        this.handleSelection = this.handleSelection.bind(this);
     }
 
     componentDidMount() {
         this.setState({
             ingredients: getIngredients()
         });
+    }
+
+    handleSelection(e) {
+        let ingredient = e.target.value;
+        addIngredientToStore(ingredient);
     }
 
     render() {
@@ -26,7 +34,7 @@ class UserSelectContainer extends Component {
 
         return (
             <div>
-                {this.state.ingredients.length ? <UserSelect ingredients={this.state.ingredients}></UserSelect> : <p>No Ingredients To Select</p>}
+                {this.state.ingredients.length ? <UserSelect handleSelection={this.handleSelection} ingredients={this.state.ingredients}></UserSelect> : <p>No Ingredients To Select</p>}
             </div>
         )
 
@@ -35,6 +43,9 @@ class UserSelectContainer extends Component {
 
 function getIngredients() {
     return store.getState().recipeIngredients;
+}
+function addIngredientToStore(ingredient) {
+    store.dispatch(addIngredient(ingredient));
 }
 
 export default UserSelectContainer;
