@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Ingredient from './Ingredient';
 import { store } from '../../store/store';
 
+// * Container for Ingredient Stateless Component
+// * Ingredients are stored by ID so get name
+// * on mounting
+
 class IngredientContainer extends Component {
 
     constructor(props) {
