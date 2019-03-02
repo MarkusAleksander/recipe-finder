@@ -23,7 +23,7 @@ class IngredientListContainer extends Component {
         return (
             <ul>
                 {this.state.ingredients.map(function (item) {
-                    return <li><IngredientContainer ingredient={item}></IngredientContainer></li>
+                    return <li key={item.id}><IngredientContainer ingredient={item}></IngredientContainer></li>
                 })}
             </ul>
         )

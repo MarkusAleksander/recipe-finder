@@ -18,3 +18,6 @@ export const addQuantifier = (quantifier) => ({
         quantifier: quantifier
     }
 });
+export const storeUserIngredient = () => ({
+    type: TYPES.STORE_USER_INGREDIENT
+});

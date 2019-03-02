@@ -25,7 +25,7 @@ class RecipeListContainer extends Component {
             <ul>
                 {this.state.recipes.map(function (item) {
                     // Render a Recipe Container for each Recipe
-                    return <li><RecipeContainer recipe={item} key={item.id}></RecipeContainer></li>
+                    return <li key={item.id}><RecipeContainer recipe={item}></RecipeContainer></li>
                 })}
             </ul>
         )

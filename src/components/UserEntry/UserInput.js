@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class UserInput extends Component {
+const UserInput = (props) => {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            input: '',
-            ingredients: [],
-            maxItems: 3
-        }
-    }
+    return (
+        <input type="number" min="0.01" step="0.01" onChange={props.handleInput} />
+    )
 
 }
+
+export default UserInput;
