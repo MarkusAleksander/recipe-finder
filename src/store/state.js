@@ -79,19 +79,41 @@ export const initialState = {
     recipeIngredients: [
         {
             'id': 1,
-            'ingredient': 'tomatoes'
+            'title': 'tomatoes'
         },
         {
             'id': 2,
-            'ingredient': 'beef'
+            'title': 'beef'
         },
         {
             'id': 3,
-            'ingredient': 'pasta'
+            'title': 'pasta'
         },
         {
             'id': 4,
-            'ingredient': 'oregano'
+            'title': 'oregano'
+        }
+    ],
+    quantifiers: [
+        {
+            'id': 'g',
+            'title': 'grams',
+        },
+        {
+            'id': 'kg',
+            'title': 'kilograms',
+        },
+        {
+            'id': 'ml',
+            'title': 'millilitres'
+        },
+        {
+            'id': 'tspn',
+            'title': 'teaspoon'
+        },
+        {
+            'id': 'tblspon',
+            'title': 'tablespoon'
         }
     ],
     currentUserIngredient: {

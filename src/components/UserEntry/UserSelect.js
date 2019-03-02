@@ -2,14 +2,14 @@ import React from 'react';
 
 const UserSelect = (props) => {
 
-    const IngredientOptions = props.ingredients.map((i) =>
-        <option key={i.id} value={i.id}>{i.ingredient}</option>
+    const Options = props.items.map((i) =>
+        <option key={i.id} value={i.id}>{i.title}</option>
     );
 
     return (
         <select onChange={props.handleSelection}>
-            <option selected>Select an ingredient</option>
-            {IngredientOptions}
+            <option selected>Select an item</option>
+            {Options}
         </select>
     )
 }

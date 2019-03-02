@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import UserSelect from './UserSelect';
 
 import { store } from '../../store/store';
-import { addIngredient } from '../../store/actions/action_creators';
 
 class UserSelectContainer extends Component {
 
@@ -10,7 +9,8 @@ class UserSelectContainer extends Component {
         super(props);
 
         this.state = {
-            ingredients: []
+            type: this.props.type,
+            items: []
         }
 
         this.handleSelection = this.handleSelection.bind(this);
@@ -18,34 +18,27 @@ class UserSelectContainer extends Component {
 
     componentDidMount() {
         this.setState({
-            ingredients: getIngredients()
+            items: getItems(this.state.type)
         });
     }
 
     handleSelection(e) {
-        let ingredient = e.target.value;
-        addIngredientToStore(ingredient);
+        this.props.handleSelection(e.target.value);
     }
 
     render() {
 
-        // const selectBox = <UserSelect ingredients={this.state.ingredients}></UserSelect>;
-        // const ingredients = this.state.ingredients;
-
         return (
             <div>
-                {this.state.ingredients.length ? <UserSelect handleSelection={this.handleSelection} ingredients={this.state.ingredients}></UserSelect> : <p>No Ingredients To Select</p>}
+                {this.state.items.length ? <UserSelect handleSelection={this.handleSelection} items={this.state.items}></UserSelect> : <p>No Ingredients To Select</p>}
             </div>
         )
 
     }
 }
 
-function getIngredients() {
-    return store.getState().recipeIngredients;
-}
-function addIngredientToStore(ingredient) {
-    store.dispatch(addIngredient(ingredient));
+function getItems(type) {
+    return store.getState()[type];
 }
 
 export default UserSelectContainer;
