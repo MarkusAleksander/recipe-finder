@@ -18,7 +18,7 @@ class IngredientContainer extends Component {
 
     componentDidMount() {
         this.setState({
-            ingredientName: getIngredientDetail(this.state.ingredientData.id)
+            ingredientName: getIngredientDetail(this.state.ingredientData.ingredient_id)
         })
     }
 
@@ -33,10 +33,9 @@ class IngredientContainer extends Component {
 }
 
 function getIngredientDetail(id) {
-    var i = store.getState().recipeIngredients;
-    var x = i.find(function (x) { return x.id === Number(id) }).title;
+    var detail = store.getState().recipeIngredients.find(function (x) { return x.id === Number(id) });
     // debugger;
-    return x;
+    return detail !== undefined ? detail.title : 'Err';
 }
 
 export default IngredientContainer;

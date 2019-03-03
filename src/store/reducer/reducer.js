@@ -7,14 +7,14 @@ export const reducer = (state = initialState, action) => {
         case TYPES.ADD_INGREDIENT:
             console.log('Add ingredient...');
             let cUI_I = state.currentUserIngredient;
-            cUI_I.id = action.payload.ingredient_id;
+            cUI_I.ingredient_id = action.payload.ingredient_id;
             return Object.assign({}, state, {
                 currentUserIngredient: cUI_I
             });
         case TYPES.ADD_QUANTITY:
             console.log('Add quantity...');
             let cUI_Qty = state.currentUserIngredient;
-            cUI_Qty.quantity = action.payload.quantity;
+            cUI_Qty.amount = action.payload.quantity;
             return Object.assign({}, state, {
                 currentUserIngredient: cUI_Qty
             });
@@ -31,7 +31,13 @@ export const reducer = (state = initialState, action) => {
             let uI = state.userIngredients.slice();
             uI.push(cUI);
             return Object.assign({}, state, {
-                userIngredients: uI
+                userIngredients: uI,
+                currentUserIngredient: {
+                    id: cUI.id + 1,
+                    ingredient_id: 0,
+                    quantity: 0,
+                    quantifier: ''
+                }
             });
         default:
             return state;

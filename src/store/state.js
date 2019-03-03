@@ -6,17 +6,20 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'id': 3,
+                    'id': 1,
+                    'ingredient_id': 3,
                     'amount': '100',
                     'quantifier': 'g'
                 },
                 {
-                    'id': 1,
+                    'id': 2,
+                    'ingredient_id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'id': 4,
+                    'id': 3,
+                    'ingredient_id': 4,
                     'amount': '1',
                     'quantifier': 'tspn'
                 }
@@ -27,12 +30,14 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'id': 2,
+                    'id': 1,
+                    'ingredient_id': 2,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'id': 1,
+                    'id': 2,
+                    'ingredient_id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 }
@@ -43,17 +48,20 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'id': 3,
+                    'id': 1,
+                    'ingredient_id': 3,
                     'amount': '100',
                     'quantifier': 'g'
                 },
                 {
-                    'id': 1,
+                    'id': 2,
+                    'ingredient_id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'id': 4,
+                    'id': 3,
+                    'ingredient_id': 4,
                     'amount': '1',
                     'quantifier': 'tspn'
                 }
@@ -64,12 +72,14 @@ export const initialState = {
             'instruction': 'Lorem Ipsum',
             'ingredients': [
                 {
-                    'id': 2,
+                    'id': 1,
+                    'ingredient_id': 2,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
-                    'id': 1,
+                    'id': 2,
+                    'ingredient_id': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 }
@@ -117,8 +127,9 @@ export const initialState = {
         }
     ],
     currentUserIngredient: {
-        id: '',
-        quantity: 0,
+        id: 0,
+        ingredient_id: 0,
+        amount: 0,
         quantifier: ''
     },
     userIngredients: []
