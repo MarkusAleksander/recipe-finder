@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserSelect from './UserSelect';
+import { connect } from 'react-redux';
 
 import { store } from '../../store/store';
 
@@ -10,6 +11,7 @@ class UserSelectContainer extends Component {
 
         this.state = {
             type: this.props.type,
+            action: this.props.handleSelection,
             items: []
         }
 
@@ -23,7 +25,7 @@ class UserSelectContainer extends Component {
     }
 
     handleSelection(e) {
-        this.props.handleSelection(e.target.value);
+        dispatchToStore(e.target.value, this.state.action);
     }
 
     render() {
@@ -39,6 +41,10 @@ class UserSelectContainer extends Component {
 
 function getItems(type) {
     return store.getState()[type];
+}
+
+function dispatchToStore(v, action) {
+    store.dispatch(action(v));
 }
 
 export default UserSelectContainer;

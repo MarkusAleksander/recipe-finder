@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+//import { connect } from 'react-redux';
+
 // Import Components
 import UserSelectContainer from './../UserEntry/UserSelectContainer';
 import UserInputContainer from './../UserEntry/UserInputContainer';
@@ -14,18 +16,18 @@ class UserBlock extends Component {
     constructor(props) {
         super(props);
 
-        this.handleUserQuantifierSelection = this.handleUserQuantifierSelection.bind(this);
-        this.handleUserIngredientSelection = this.handleUserIngredientSelection.bind(this);
+        // this.handleUserQuantifierSelection = this.handleUserQuantifierSelection.bind(this);
+        // this.handleUserIngredientSelection = this.handleUserIngredientSelection.bind(this);
         this.handleUserIngredientInput = this.handleUserIngredientInput.bind(this);
         this.handleUserIngredientSubmit = this.handleUserIngredientSubmit.bind(this);
     }
 
-    handleUserQuantifierSelection(value) {
-        addIngredientToStore(value);
-    }
-    handleUserIngredientSelection(value) {
-        addQuantifierToStore(value);
-    }
+    // handleUserQuantifierSelection(value) {
+    //     addIngredientToStore(value);
+    // }
+    // handleUserIngredientSelection(value) {
+    //     addQuantifierToStore(value);
+    // }
     handleUserIngredientInput(value) {
         addQuantityToStore(value);
     }
@@ -37,10 +39,10 @@ class UserBlock extends Component {
         return (
             <div className="col">
                 <UserSelectContainer
-                    handleSelection={this.handleUserQuantifierSelection}
+                    handleSelection={addIngredient}
                     type="recipeIngredients"></UserSelectContainer>
                 <UserSelectContainer
-                    handleSelection={this.handleUserIngredientSelection}
+                    handleSelection={addQuantifier}
                     type="quantifiers"></UserSelectContainer>
                 <UserInputContainer
                     handleInput={this.handleUserIngredientInput}
@@ -55,12 +57,13 @@ class UserBlock extends Component {
     }
 }
 
-function addIngredientToStore(item) {
-    store.dispatch(addIngredient(item));
-}
-function addQuantifierToStore(item) {
-    store.dispatch(addQuantifier(item));
-}
+// function addIngredientToStore(item) {
+//     store.dispatch(addIngredient(item));
+// }
+// function addQuantifierToStore(item) {
+//     store.dispatch(addQuantifier(item));
+// }
+
 function addQuantityToStore(value) {
     store.dispatch(addQuantity(value));
 }

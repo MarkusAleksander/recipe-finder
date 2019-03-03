@@ -117,7 +117,7 @@ export const initialState = {
         }
     ],
     currentUserIngredient: {
-        ingredient: '',
+        id: '',
         quantity: 0,
         quantifier: ''
     },

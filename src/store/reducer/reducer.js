@@ -7,7 +7,7 @@ export const reducer = (state = initialState, action) => {
         case TYPES.ADD_INGREDIENT:
             console.log('Add ingredient...');
             let cUI_I = state.currentUserIngredient;
-            cUI_I.ingredient = action.payload.ingredient;
+            cUI_I.id = action.payload.ingredient_id;
             return Object.assign({}, state, {
                 currentUserIngredient: cUI_I
             });
@@ -28,7 +28,7 @@ export const reducer = (state = initialState, action) => {
         case TYPES.STORE_USER_INGREDIENT:
             console.log('Storing user ingredient input');
             let cUI = state.currentUserIngredient;
-            let uI = state.userIngredients;
+            let uI = state.userIngredients.slice();
             uI.push(cUI);
             return Object.assign({}, state, {
                 userIngredients: uI

@@ -33,7 +33,10 @@ class IngredientContainer extends Component {
 }
 
 function getIngredientDetail(id) {
-    return store.getState().recipeIngredients.find(function (x) { return x.id === id }).ingredient;
+    var i = store.getState().recipeIngredients;
+    var x = i.find(function (x) { return x.id === Number(id) }).title;
+    // debugger;
+    return x;
 }
 
 export default IngredientContainer;

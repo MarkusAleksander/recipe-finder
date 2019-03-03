@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IngredientContainer from './../Ingredient/IngredientContainer';
 
+import { connect } from 'react-redux';
 import { store } from './../../store/store';
 
 class UserIngredientListContainer extends Component {
@@ -9,7 +10,7 @@ class UserIngredientListContainer extends Component {
         super(props);
 
         this.state = {
-            ingredients: []
+            userIngredients: this.props.userIngredientsList
         }
     }
 
@@ -21,11 +22,11 @@ class UserIngredientListContainer extends Component {
 
         let ingredientList;
 
-        if (this.state.ingredients.length) {
+        if (this.props.userIngredientsList.length) {
             ingredientList =
                 <ul>
                     {
-                        this.state.ingredients.map(function (item) {
+                        this.props.userIngredientsList.map(function (item) {
                             return <li key={item.id}><IngredientContainer ingredient={item}></IngredientContainer></li>
                         })
                     }
@@ -43,4 +44,9 @@ class UserIngredientListContainer extends Component {
 
 }
 
-export default UserIngredientListContainer;
+const mapStateToProps = state => {
+    const userIngredientsList = state.userIngredients || [];
+    return { userIngredientsList };
+}
+
+export default connect(mapStateToProps)(UserIngredientListContainer);
