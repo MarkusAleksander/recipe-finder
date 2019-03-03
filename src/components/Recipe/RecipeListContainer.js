@@ -22,12 +22,14 @@ class RecipeListContainer extends Component {
 
     render() {
         return (
-            <ul>
-                {this.state.recipes.map(function (item) {
-                    // Render a Recipe Container for each Recipe
-                    return <li key={item.id}><RecipeContainer recipe={item}></RecipeContainer></li>
-                })}
-            </ul>
+            <div className="col">
+                <ul>
+                    {this.state.recipes.map(function (item) {
+                        // Render a Recipe Container for each Recipe
+                        return <li key={item.id}><RecipeContainer recipe={item}></RecipeContainer></li>
+                    })}
+                </ul>
+            </div>
         )
     }
 }
