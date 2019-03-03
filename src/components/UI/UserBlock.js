@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import UserSelectContainer from './../UserEntry/UserSelectContainer';
 import UserInputContainer from './../UserEntry/UserInputContainer';
 import UserSubmitContainer from './../UserEntry/UserSubmitContainer';
+import UserIngredientListContainer from './../UserEntry/UserIngredientListContainer';
 
 import { store } from './../../store/store';
 import { addIngredient, addQuantifier, addQuantity, storeUserIngredient } from './../../store/actions/action_creators';
@@ -48,6 +49,7 @@ class UserBlock extends Component {
                     handleClick={this.handleUserIngredientSubmit}
                     text={'Add Ingredient'}
                 ></UserSubmitContainer>
+                <UserIngredientListContainer></UserIngredientListContainer>
             </div>
         )
     }
