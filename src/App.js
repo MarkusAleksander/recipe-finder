@@ -14,9 +14,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <UserBlock></UserBlock>
-        <RecipeListContainer></RecipeListContainer>
+      <div className="container">
+        <div className="columns">
+          <div className="column is-half">
+            <UserBlock></UserBlock>
+          </div>
+          <div className="column is-half">
+            <RecipeListContainer></RecipeListContainer>
+          </div>
+        </div>
       </div>
     )
   }

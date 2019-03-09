@@ -14,8 +14,8 @@ class Recipe extends Component {
     render() {
 
         return (
-            <div>
-                <h2>{this.props.recipe.title}</h2>
+            <div className="box content">
+                <h2 className="title">{this.props.recipe.title}</h2>
                 <IngredientListContainer recipeID={this.props.recipe.id}></IngredientListContainer>
                 <p>{this.props.recipe.instruction}</p>
             </div>

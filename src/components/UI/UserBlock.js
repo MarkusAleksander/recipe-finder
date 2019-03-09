@@ -64,7 +64,9 @@ class UserBlock extends Component {
                         ></UserSubmitContainer>
                     </div>
                 </div>
-                <UserIngredientListContainer></UserIngredientListContainer>
+                <div class="content">
+                    <UserIngredientListContainer></UserIngredientListContainer>
+                </div>
             </div>
         )
     }
