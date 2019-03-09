@@ -8,19 +8,19 @@ export const initialState = {
                 {
                     'id': 1,
                     'ingredient': 3,
-                    'amount': '100',
+                    'amount': 100,
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
                     'ingredient': 1,
-                    'amount': '200',
+                    'amount': 200,
                     'quantifier': 'g'
                 },
                 {
                     'id': 3,
                     'ingredient': 4,
-                    'amount': '1',
+                    'amount': 1,
                     'quantifier': 'tspn'
                 }
             ]
@@ -32,13 +32,13 @@ export const initialState = {
                 {
                     'id': 1,
                     'ingredient': 2,
-                    'amount': '200',
+                    'amount': 200,
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
                     'ingredient': 1,
-                    'amount': '200',
+                    'amount': 200,
                     'quantifier': 'g'
                 }
             ]
@@ -50,19 +50,19 @@ export const initialState = {
                 {
                     'id': 1,
                     'ingredient': 3,
-                    'amount': '100',
+                    'amount': 100,
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
                     'ingredient': 1,
-                    'amount': '200',
+                    'amount': 200,
                     'quantifier': 'g'
                 },
                 {
                     'id': 3,
                     'ingredient': 4,
-                    'amount': '1',
+                    'amount': 1,
                     'quantifier': 'tspn'
                 }
             ]
@@ -74,13 +74,13 @@ export const initialState = {
                 {
                     'id': 1,
                     'ingredient': 2,
-                    'amount': '200',
+                    'amount': 200,
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
                     'ingredient': 1,
-                    'amount': '200',
+                    'amount': 200,
                     'quantifier': 'g'
                 }
             ]

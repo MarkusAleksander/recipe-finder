@@ -10,7 +10,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 currentUserIngredient: {
                     ...state.currentUserIngredient,
-                    ingredient: action.payload.ingredient
+                    ingredient: Number(action.payload.ingredient)
                 }
             }
         case TYPES.ADD_AMOUNT:

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RecipeContainer from './RecipeContainer';
 
 import { store } from '../../store/store';
+import { connect } from 'react-redux';
 
 class RecipeListContainer extends Component {
 
@@ -24,7 +25,7 @@ class RecipeListContainer extends Component {
         return (
             <div>
                 <ul>
-                    {this.state.recipes.map(function (item) {
+                    {this.props.recipes.map(function (item) {
                         // Render a Recipe Container for each Recipe
                         return <li key={item.id}><RecipeContainer recipe={item}></RecipeContainer></li>
                     })}
@@ -36,7 +37,27 @@ class RecipeListContainer extends Component {
 
 function getRecipes() {
     // Get recipes from the store
-    return store.getState().recipes;
+    var currentUserIngredients = store.getState().userIngredients;
+
+    return store.getState().recipes.filter(function (el) {
+        el.ingredients.some(function () {
+            return (el.ingredient === currentUserIngredients.ingredient) && (el.amount === currentUserIngredients.amount) && (el.quantifer === currentUserIngredients.quantifier)
+        });
+    });
 }
 
-export default RecipeListContainer;
+const mapStateToProps = (state) => {
+    var currentUserIngredients = store.getState().userIngredients;
+    //debugger;
+    const recipes = store.getState().recipes.filter(function (el) {
+        return el.ingredients.some(function (item) {
+            return currentUserIngredients.some(function (cUI) {
+                return (item.ingredient === cUI.ingredient) && (item.amount === cUI.amount) && (item.quantifier === cUI.quantifier)
+            });
+        });
+    });
+
+    return { recipes };
+}
+
+export default connect(mapStateToProps)(RecipeListContainer);
