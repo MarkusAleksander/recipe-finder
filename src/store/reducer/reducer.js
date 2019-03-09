@@ -8,32 +8,34 @@ export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case TYPES.ADD_INGREDIENT:
             console.log('Add ingredient...');
-            let cUI_I = state.currentUserIngredient;
-            cUI_I.ingredient_id = action.payload.ingredient_id;
-            cUI_I.editState = EDITINGSTATES.EDITING;
-            return Object.assign({}, state, {
-                currentUserIngredient: cUI_I
-            });
-        case TYPES.ADD_QUANTITY:
-            console.log('Add quantity...');
-            let cUI_Qty = state.currentUserIngredient;
-            cUI_Qty.amount = Number(action.payload.quantity);
-            cUI_Qty.editState = EDITINGSTATES.EDITING;
             return {
                 ...state,
                 currentUserIngredient: {
                     ...state.currentUserIngredient,
-                    amount: cUI_Qty.amount
+                    ingredient_id: action.payload.ingredient_id,
+                    editState: EDITINGSTATES.EDITING
+                }
+            }
+        case TYPES.ADD_QUANTITY:
+            console.log('Add quantity...');
+            return {
+                ...state,
+                currentUserIngredient: {
+                    ...state.currentUserIngredient,
+                    amount: Number(action.payload.quantity),
+                    editState: EDITINGSTATES.EDITING
                 }
             }
         case TYPES.ADD_QUANTIFIER:
             console.log('Add quantifier...');
-            let cUI_Qfr = state.currentUserIngredient;
-            cUI_Qfr.quantifier = action.payload.quantifier;
-            cUI_Qfr.editState = EDITINGSTATES.EDITING;
-            return Object.assign({}, state, {
-                currentUserIngredient: cUI_Qfr
-            });
+            return {
+                ...state,
+                currentUserIngredient: {
+                    ...state.currentUserIngredient,
+                    quantifier: action.payload.quantifier,
+                    editState: EDITINGSTATES.EDITING
+                }
+            }
         case TYPES.STORE_USER_INGREDIENT:
             console.log('Storing user ingredient input');
             let cUI = state.currentUserIngredient;
