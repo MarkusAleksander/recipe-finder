@@ -29,21 +29,41 @@ class UserBlock extends Component {
 
     render() {
         return (
-            <div className="col">
-                <UserSelectContainer
-                    handleSelection={addIngredient}
-                    type="ingredients"></UserSelectContainer>
-                <UserSelectContainer
-                    handleSelection={addQuantifier}
-                    type="quantifiers"></UserSelectContainer>
-                <UserInputContainer
-                    handleInput={this.handleUserIngredientInput}
-                    type="amount"
-                ></UserInputContainer>
-                <UserSubmitContainer
-                    handleClick={this.handleUserIngredientSubmit}
-                    text={'Add Ingredient'}
-                ></UserSubmitContainer>
+            <div>
+                <div className="field">
+                    <label className="label">Select an Ingredient</label>
+                    <div className="control">
+                        <UserSelectContainer
+                            handleSelection={addIngredient}
+                            type="ingredients"></UserSelectContainer>
+                    </div>
+                </div>
+                <div className="field">
+                    <label className="label">Select a Quantifier</label>
+                    <div className="control">
+                        <UserSelectContainer
+                            className="control"
+                            handleSelection={addQuantifier}
+                            type="quantifiers"></UserSelectContainer>
+                    </div>
+                </div>
+                <div className="field">
+                    <label className="label">Enter Amount</label>
+                    <div className="control">
+                        <UserInputContainer
+                            handleInput={this.handleUserIngredientInput}
+                            type="amount"
+                        ></UserInputContainer>
+                    </div>
+                </div>
+                <div className="field">
+                    <div className="control">
+                        <UserSubmitContainer
+                            handleClick={this.handleUserIngredientSubmit}
+                            text={'Add Ingredient'}
+                        ></UserSubmitContainer>
+                    </div>
+                </div>
                 <UserIngredientListContainer></UserIngredientListContainer>
             </div>
         )

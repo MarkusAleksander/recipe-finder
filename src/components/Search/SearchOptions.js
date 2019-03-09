@@ -30,7 +30,7 @@ class SearchOptions extends Component {
         })
 
         return (
-            <ul className="modes">
+            <ul>
                 {modeItems}
             </ul>
         )

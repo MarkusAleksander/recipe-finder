@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bulma-start/css/main.css';
 import './App.css';
 
 import UserBlock from './components/UI/UserBlock';
@@ -13,7 +14,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="flex-container">
+      <div>
         <UserBlock></UserBlock>
         <RecipeListContainer></RecipeListContainer>
       </div>

@@ -14,7 +14,7 @@ class Recipe extends Component {
     render() {
 
         return (
-            <div className="recipe-block">
+            <div>
                 <h2>{this.props.recipe.title}</h2>
                 <IngredientListContainer recipeID={this.props.recipe.id}></IngredientListContainer>
                 <p>{this.props.recipe.instruction}</p>

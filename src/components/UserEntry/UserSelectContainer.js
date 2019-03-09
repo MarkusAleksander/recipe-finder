@@ -33,7 +33,7 @@ class UserSelectContainer extends Component {
     render() {
 
         return (
-            <div>
+            <div className="select is-primary">
                 {this.state.items.length ? <UserSelect selectionKey={this.props.selection} handleSelection={this.handleSelection} items={this.state.items}></UserSelect> : <p>No Ingredients To Select</p>}
             </div>
         )

@@ -22,7 +22,7 @@ class RecipeListContainer extends Component {
 
     render() {
         return (
-            <div className="col">
+            <div>
                 <ul>
                     {this.state.recipes.map(function (item) {
                         // Render a Recipe Container for each Recipe

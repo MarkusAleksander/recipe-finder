@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserSubmit = (props) => {
     return (
-        <button onClick={props.handleClick}>{props.text}</button>
+        <button className="button is-primary" onClick={props.handleClick}>{props.text}</button>
     )
 }
 
