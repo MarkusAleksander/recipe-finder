@@ -1,8 +1,6 @@
 import * as TYPES from '../actions/action_types';
-import { EDITINGSTATES } from '../userEditingStates';
 
 import { initialState } from './../state';
-
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -12,18 +10,16 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 currentUserIngredient: {
                     ...state.currentUserIngredient,
-                    ingredient_id: action.payload.ingredient_id,
-                    editState: EDITINGSTATES.EDITING
+                    ingredient: action.payload.ingredient
                 }
             }
-        case TYPES.ADD_QUANTITY:
-            console.log('Add quantity...');
+        case TYPES.ADD_AMOUNT:
+            console.log('Add amount...');
             return {
                 ...state,
                 currentUserIngredient: {
                     ...state.currentUserIngredient,
-                    amount: Number(action.payload.quantity),
-                    editState: EDITINGSTATES.EDITING
+                    amount: Number(action.payload.amount)
                 }
             }
         case TYPES.ADD_QUANTIFIER:
@@ -32,21 +28,19 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 currentUserIngredient: {
                     ...state.currentUserIngredient,
-                    quantifier: action.payload.quantifier,
-                    editState: EDITINGSTATES.EDITING
+                    quantifier: action.payload.quantifier
                 }
             }
         case TYPES.STORE_USER_INGREDIENT:
             console.log('Storing user ingredient input');
             let cUI = state.currentUserIngredient;
-            cUI.editState = EDITINGSTATES.SUBMITTED;
             let uI = state.userIngredients.slice();
             uI.push(cUI);
             return Object.assign({}, state, {
                 userIngredients: uI,
                 currentUserIngredient: {
                     id: cUI.id + 1,
-                    ingredient_id: 0,
+                    ingredient: 0,
                     quantity: 0,
                     quantifier: ''
                 }

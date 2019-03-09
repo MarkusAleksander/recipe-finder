@@ -1,5 +1,3 @@
-import { EDITINGSTATES } from './userEditingStates';
-
 export const initialState = {
     recipes: [
         {
@@ -9,19 +7,19 @@ export const initialState = {
             'ingredients': [
                 {
                     'id': 1,
-                    'ingredient_id': 3,
+                    'ingredient': 3,
                     'amount': '100',
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
-                    'ingredient_id': 1,
+                    'ingredient': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
                     'id': 3,
-                    'ingredient_id': 4,
+                    'ingredient': 4,
                     'amount': '1',
                     'quantifier': 'tspn'
                 }
@@ -33,13 +31,13 @@ export const initialState = {
             'ingredients': [
                 {
                     'id': 1,
-                    'ingredient_id': 2,
+                    'ingredient': 2,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
-                    'ingredient_id': 1,
+                    'ingredient': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 }
@@ -51,19 +49,19 @@ export const initialState = {
             'ingredients': [
                 {
                     'id': 1,
-                    'ingredient_id': 3,
+                    'ingredient': 3,
                     'amount': '100',
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
-                    'ingredient_id': 1,
+                    'ingredient': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
                     'id': 3,
-                    'ingredient_id': 4,
+                    'ingredient': 4,
                     'amount': '1',
                     'quantifier': 'tspn'
                 }
@@ -75,20 +73,20 @@ export const initialState = {
             'ingredients': [
                 {
                     'id': 1,
-                    'ingredient_id': 2,
+                    'ingredient': 2,
                     'amount': '200',
                     'quantifier': 'g'
                 },
                 {
                     'id': 2,
-                    'ingredient_id': 1,
+                    'ingredient': 1,
                     'amount': '200',
                     'quantifier': 'g'
                 }
             ]
         }
     ],
-    recipeIngredients: [
+    ingredients: [
         {
             'id': 1,
             'title': 'tomatoes'
@@ -130,10 +128,9 @@ export const initialState = {
     ],
     currentUserIngredient: {
         id: 0,
-        ingredient_id: 0,
+        ingredient: 0,
         amount: 0,
-        quantifier: '',
-        editState: EDITINGSTATES.IDLE
+        quantifier: ''
     },
     userIngredients: []
 }

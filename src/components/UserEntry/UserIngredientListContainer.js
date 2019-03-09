@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import IngredientContainer from './../Ingredient/IngredientContainer';
 
 import { connect } from 'react-redux';
-import { store } from './../../store/store';
 
 class UserIngredientListContainer extends Component {
 
@@ -12,10 +11,6 @@ class UserIngredientListContainer extends Component {
         this.state = {
             userIngredients: this.props.userIngredientsList
         }
-    }
-
-    componentDidMount() {
-
     }
 
     render() {

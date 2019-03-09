@@ -9,27 +9,19 @@ import UserSubmitContainer from './../UserEntry/UserSubmitContainer';
 import UserIngredientListContainer from './../UserEntry/UserIngredientListContainer';
 
 import { store } from './../../store/store';
-import { addIngredient, addQuantifier, addQuantity, storeUserIngredient } from './../../store/actions/action_creators';
+import { addIngredient, addQuantifier, addAmount, storeUserIngredient } from './../../store/actions/action_creators';
 
 class UserBlock extends Component {
 
     constructor(props) {
         super(props);
 
-        // this.handleUserQuantifierSelection = this.handleUserQuantifierSelection.bind(this);
-        // this.handleUserIngredientSelection = this.handleUserIngredientSelection.bind(this);
         this.handleUserIngredientInput = this.handleUserIngredientInput.bind(this);
         this.handleUserIngredientSubmit = this.handleUserIngredientSubmit.bind(this);
     }
 
-    // handleUserQuantifierSelection(value) {
-    //     addIngredientToStore(value);
-    // }
-    // handleUserIngredientSelection(value) {
-    //     addQuantifierToStore(value);
-    // }
     handleUserIngredientInput(value) {
-        addQuantityToStore(value);
+        addAmountToStore(value);
     }
     handleUserIngredientSubmit() {
         storeUserIngredients();
@@ -40,7 +32,7 @@ class UserBlock extends Component {
             <div className="col">
                 <UserSelectContainer
                     handleSelection={addIngredient}
-                    type="recipeIngredients"></UserSelectContainer>
+                    type="ingredients"></UserSelectContainer>
                 <UserSelectContainer
                     handleSelection={addQuantifier}
                     type="quantifiers"></UserSelectContainer>
@@ -58,15 +50,8 @@ class UserBlock extends Component {
     }
 }
 
-// function addIngredientToStore(item) {
-//     store.dispatch(addIngredient(item));
-// }
-// function addQuantifierToStore(item) {
-//     store.dispatch(addQuantifier(item));
-// }
-
-function addQuantityToStore(value) {
-    store.dispatch(addQuantity(value));
+function addAmountToStore(value) {
+    store.dispatch(addAmount(value));
 }
 function storeUserIngredients() {
     store.dispatch(storeUserIngredient());

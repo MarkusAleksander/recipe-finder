@@ -1,15 +1,15 @@
 import * as TYPES from './action_types';
 
-export const addIngredient = (ingredient_id) => ({
+export const addIngredient = (ingredient) => ({
     type: TYPES.ADD_INGREDIENT,
     payload: {
-        ingredient_id: ingredient_id
+        ingredient: ingredient
     }
 });
-export const addQuantity = (quantity) => ({
-    type: TYPES.ADD_QUANTITY,
+export const addAmount = (amount) => ({
+    type: TYPES.ADD_AMOUNT,
     payload: {
-        quantity: quantity
+        amount: amount
     }
 });
 export const addQuantifier = (quantifier) => ({

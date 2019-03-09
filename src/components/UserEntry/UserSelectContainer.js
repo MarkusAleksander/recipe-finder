@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UserSelect from './UserSelect';
 import { connect } from 'react-redux';
-import { EDITINGSTATES } from './../../store/userEditingStates';
 
 import { store } from '../../store/store';
 
@@ -14,7 +13,7 @@ class UserSelectContainer extends Component {
             type: this.props.type,
             action: this.props.handleSelection,
             items: [],
-            selection_key: this.props.selection
+            selectionKey: this.props.selection
         }
 
         this.handleSelection = this.handleSelection.bind(this);
@@ -35,10 +34,9 @@ class UserSelectContainer extends Component {
 
         return (
             <div>
-                {this.state.items.length ? <UserSelect handleSelection={this.handleSelection} items={this.state.items}></UserSelect> : <p>No Ingredients To Select</p>}
+                {this.state.items.length ? <UserSelect selectionKey={this.props.selection} handleSelection={this.handleSelection} items={this.state.items}></UserSelect> : <p>No Ingredients To Select</p>}
             </div>
         )
-
     }
 }
 
@@ -51,7 +49,8 @@ function dispatchToStore(v, action) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const selection = state.currentUserIngredient[ownProps.type] || 0;
+    const selection = state.currentUserIngredient[ownProps.type.slice(0, -1)] || 0;
+    // debugger;
     return { selection: selection };
 }
 

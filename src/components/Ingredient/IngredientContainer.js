@@ -12,13 +12,13 @@ class IngredientContainer extends Component {
         super(props);
         this.state = {
             ingredientData: this.props.ingredient,
-            ingredientName: ''
+            ingredientTitle: ''
         }
     }
 
     componentDidMount() {
         this.setState({
-            ingredientName: getIngredientDetail(this.state.ingredientData.ingredient_id)
+            ingredientTitle: getIngredientDetail(this.state.ingredientData.ingredient)
         })
     }
 
@@ -27,14 +27,13 @@ class IngredientContainer extends Component {
             <Ingredient
                 amount={this.state.ingredientData.amount}
                 quantifier={this.state.ingredientData.quantifier}
-                ingredientName={this.state.ingredientName}></Ingredient>
+                ingredientTitle={this.state.ingredientTitle}></Ingredient>
         )
     }
 }
 
 function getIngredientDetail(id) {
-    var detail = store.getState().recipeIngredients.find(function (x) { return x.id === Number(id) });
-    // debugger;
+    var detail = store.getState().ingredients.find(function (x) { return x.id === Number(id) });
     return detail !== undefined ? detail.title : 'Err';
 }
 
