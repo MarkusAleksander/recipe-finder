@@ -4,6 +4,7 @@ import './App.css';
 
 import UserBlock from './components/UI/UserBlock';
 import RecipeListContainer from './components/Recipe/RecipeListContainer';
+import UserButtonsContainer from './components/UserEntry/UserButtonsContainer';
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
             <UserBlock></UserBlock>
           </div>
           <div className="column is-half">
+            <UserButtonsContainer></UserButtonsContainer>
             <RecipeListContainer></RecipeListContainer>
           </div>
         </div>

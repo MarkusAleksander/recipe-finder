@@ -1,3 +1,5 @@
+import * as SEARCHTYPES from './search_types';
+
 export const initialState = {
     recipes: [
         {
@@ -132,5 +134,6 @@ export const initialState = {
         amount: 0,
         quantifier: ''
     },
-    userIngredients: []
+    userIngredients: [],
+    searchType: SEARCHTYPES.ALL
 }

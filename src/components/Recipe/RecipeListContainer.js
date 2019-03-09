@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RecipeContainer from './RecipeContainer';
+import * as SEARCHTYPES from './../../store/search_types';
 
 import { store } from '../../store/store';
 import { connect } from 'react-redux';
@@ -48,14 +49,32 @@ function getRecipes() {
 
 const mapStateToProps = (state) => {
     var currentUserIngredients = store.getState().userIngredients;
+    var searchType = store.getState().searchType;
     //debugger;
-    const recipes = store.getState().recipes.filter(function (el) {
-        return el.ingredients.some(function (item) {
-            return currentUserIngredients.some(function (cUI) {
-                return (item.ingredient === cUI.ingredient) && (item.amount === cUI.amount) && (item.quantifier === cUI.quantifier)
-            });
+    var recipes;
+
+    if (searchType === SEARCHTYPES.ALL) {
+        recipes = store.getState().recipes;
+    } else {
+        recipes = store.getState().recipes.filter(function (el) {
+            if (searchType === SEARCHTYPES.SOME) {
+                // List recipes with SOME of the ingredients
+                return el.ingredients.some(function (item) {
+                    return currentUserIngredients.some(function (cUI) {
+                        return (item.ingredient === cUI.ingredient) && (item.amount === cUI.amount) && (item.quantifier === cUI.quantifier)
+                    });
+                });
+            }
+            if (searchType === SEARCHTYPES.EXACT) {
+                // List recipes with ONLY the entered ingredients
+                return el.ingredients.every(function (item) {
+                    return currentUserIngredients.some(function (cUI) {
+                        return (item.ingredient === cUI.ingredient) && (item.amount === cUI.amount) && (item.quantifier === cUI.quantifier)
+                    });
+                });
+            }
         });
-    });
+    }
 
     return { recipes };
 }

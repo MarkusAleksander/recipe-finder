@@ -44,7 +44,13 @@ export const reducer = (state = initialState, action) => {
                     quantity: 0,
                     quantifier: ''
                 }
-            });
+            })
+        case TYPES.UPDATE_SEARCH_TYPE:
+            console.log('Updating search type');
+            return {
+                ...state,
+                searchType: action.payload.searchType
+            }
         default:
             return state;
     }

@@ -21,3 +21,9 @@ export const addQuantifier = (quantifier) => ({
 export const storeUserIngredient = () => ({
     type: TYPES.STORE_USER_INGREDIENT
 });
+export const updateSearchType = (searchType) => ({
+    type: TYPES.UPDATE_SEARCH_TYPE,
+    payload: {
+        searchType: searchType
+    }
+});
