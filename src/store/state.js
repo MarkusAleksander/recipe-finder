@@ -1,3 +1,5 @@
+import { EDITINGSTATES } from './userEditingStates';
+
 export const initialState = {
     recipes: [
         {
@@ -130,7 +132,8 @@ export const initialState = {
         id: 0,
         ingredient_id: 0,
         amount: 0,
-        quantifier: ''
+        quantifier: '',
+        editState: EDITINGSTATES.IDLE
     },
     userIngredients: []
 }

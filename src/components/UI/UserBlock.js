@@ -46,6 +46,7 @@ class UserBlock extends Component {
                     type="quantifiers"></UserSelectContainer>
                 <UserInputContainer
                     handleInput={this.handleUserIngredientInput}
+                    type="amount"
                 ></UserInputContainer>
                 <UserSubmitContainer
                     handleClick={this.handleUserIngredientSubmit}

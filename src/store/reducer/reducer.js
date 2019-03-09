@@ -1,6 +1,8 @@
 import * as TYPES from '../actions/action_types';
+import { EDITINGSTATES } from '../userEditingStates';
 
 import { initialState } from './../state';
+
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -8,26 +10,34 @@ export const reducer = (state = initialState, action) => {
             console.log('Add ingredient...');
             let cUI_I = state.currentUserIngredient;
             cUI_I.ingredient_id = action.payload.ingredient_id;
+            cUI_I.editState = EDITINGSTATES.EDITING;
             return Object.assign({}, state, {
                 currentUserIngredient: cUI_I
             });
         case TYPES.ADD_QUANTITY:
             console.log('Add quantity...');
             let cUI_Qty = state.currentUserIngredient;
-            cUI_Qty.amount = action.payload.quantity;
-            return Object.assign({}, state, {
-                currentUserIngredient: cUI_Qty
-            });
+            cUI_Qty.amount = Number(action.payload.quantity);
+            cUI_Qty.editState = EDITINGSTATES.EDITING;
+            return {
+                ...state,
+                currentUserIngredient: {
+                    ...state.currentUserIngredient,
+                    amount: cUI_Qty.amount
+                }
+            }
         case TYPES.ADD_QUANTIFIER:
             console.log('Add quantifier...');
             let cUI_Qfr = state.currentUserIngredient;
             cUI_Qfr.quantifier = action.payload.quantifier;
+            cUI_Qfr.editState = EDITINGSTATES.EDITING;
             return Object.assign({}, state, {
                 currentUserIngredient: cUI_Qfr
             });
         case TYPES.STORE_USER_INGREDIENT:
             console.log('Storing user ingredient input');
             let cUI = state.currentUserIngredient;
+            cUI.editState = EDITINGSTATES.SUBMITTED;
             let uI = state.userIngredients.slice();
             uI.push(cUI);
             return Object.assign({}, state, {
