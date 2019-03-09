@@ -7,8 +7,8 @@ const UserSelect = (props) => {
     );
 
     return (
-        <select onChange={props.handleSelection}>
-            <option defaultValue="">Select an item</option>
+        <select onChange={props.handleSelection} defaultValue={'0'}>
+            <option key="0" value=''>Select an item</option>
             {Options}
         </select>
     )

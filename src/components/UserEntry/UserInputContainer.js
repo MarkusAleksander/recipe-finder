@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import UserInput from './UserInput';
 
 import { connect } from 'react-redux';
-import { EDITINGSTATES } from './../../store/userEditingStates';
 
 class UserInputContainer extends Component {
 
